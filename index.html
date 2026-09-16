@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cronograma e agendamento da Arena Poliesportiva." />
+    <title>Arena | Cronograma e Agendamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/script.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a class="brand" href="#inicio" aria-label="Arena Poliesportiva">
+          <span class="brand-mark">✣</span>
+          <span><strong>ARENA</strong><small>POLIESPORTIVA</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a href="#agenda">Cronograma</a>
+          <a href="#quadras">Nossas quadras</a>
+          <a href="#como-funciona">Como funciona</a>
+        </nav>
+        <span class="open-pill"><i></i> Aberto hoje</span>
+        <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menu">☰</button>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
+        <a href="#agenda">Cronograma</a><a href="#quadras">Nossas quadras</a><a href="#como-funciona">Como funciona</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-grid container">
+          <div class="hero-copy">
+            <span class="eyebrow hero-eyebrow">✧ SEU JOGO COMEÇA AQUI</span>
+            <h1>Reserve.<br /><em>Jogue.</em><br />Repita.</h1>
+            <p>Encontre seu próximo horário na Arena. Duas quadras, uma experiência completa e a liberdade de jogar quando quiser.</p>
+            <a class="primary-button" href="#agenda">Ver horários disponíveis <span>→</span></a>
+            <div class="hero-details"><span>♧ Reserva rápida</span><span>◷ 07:00 — 22:00</span></div>
+          </div>
+          <div class="hero-cards" aria-hidden="true">
+            <div class="hero-card card-sand"><span>☼</span><b>BEACH CLUB</b><strong>+15</strong><small>horários livres hoje</small></div>
+            <div class="hero-card card-green"><span>♜</span><b>MULTI SPORT</b><strong>2</strong><small>quadras prontas</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="schedule-section container" id="agenda">
+        <div class="section-heading">
+          <div><span class="eyebrow">AGENDA EM TEMPO REAL</span><h2>Escolha seu horário</h2><p>Selecione a quadra e clique em um horário disponível.</p></div>
+          <div class="date-picker"><button id="previousDay" type="button" aria-label="Dia anterior">‹</button><label>▣ <input id="dateInput" type="date" /></label><button id="nextDay" type="button" aria-label="Próximo dia">›</button></div>
+        </div>
+
+        <div class="court-tabs" id="quadras">
+          <button class="court-card active" data-court="poliesportiva" type="button"><span class="court-icon green-icon">♜</span><span class="selected-label">SELECIONADA</span><span class="eyebrow">ESPORTES COLETIVOS</span><h3>Quadra poliesportiva</h3><p>Basquete, futsal, vôlei e muito mais.</p><small>⌖ Arena • Área externa</small></button>
+          <button class="court-card" data-court="areia" type="button"><span class="court-icon sand-icon">≋</span><span class="eyebrow">BEACH SPORTS</span><h3>Quadra de areia</h3><p>Vôlei de praia, beach tennis e futevôlei.</p><small>⌖ Arena • Área externa</small></button>
+        </div>
+
+        <div class="schedule-panel">
+          <div class="panel-header"><div><span class="date-label">▣ <span id="dateLabel"></span> · <b>Hoje</b></span><h3 id="scheduleTitle">Horários — Poliesportiva</h3></div><div class="legend"><span><i class="available-dot"></i> Disponível</span><span><i class="booked-dot"></i> Reservado</span></div></div>
+          <div class="slots" id="slots"></div>
+          <div class="panel-footer"><p><strong id="availableCount">14 horários livres</strong> de 16 neste dia</p><span id="slotHint">Clique em um horário para reservar</span></div>
+        </div>
+      </section>
+
+      <section class="reservation-section container" id="como-funciona">
+        <div class="reservation-pitch"><span class="feature-icon">♧</span><h2>Pronto para tirar o plano do papel?</h2><p>Reserve seu horário em poucos cliques e receba a confirmação na hora. É simples, rápido e sem burocracia.</p><div>✓ Sem taxa de reserva &nbsp;&nbsp; ✓ Cancelamento fácil</div></div>
+        <div class="reservation-box" id="reservationForm"><div class="reservation-title"><div><span class="eyebrow amber">SUA RESERVA</span><h3>Quase lá!</h3></div><span class="check-circle">✓</span></div><div class="summary"><div>Quadra <strong id="summaryCourt">Poliesportiva</strong></div><div>Data e horário <strong id="summaryDate">Escolha na agenda</strong></div></div><label for="nameInput">Seu nome<input id="nameInput" type="text" placeholder="Como podemos te chamar?" /></label><button class="confirm-button" id="confirmButton" type="button" disabled>Confirmar agendamento <span>✓</span></button></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <footer><div class="container footer-content"><a class="brand" href="#inicio"><span class="brand-mark">✣</span><span><strong>ARENA</strong><small>POLIESPORTIVA</small></span></a><p>© 2026 Arena Poliesportiva. Feito para quem gosta de jogar.</p><span>☼ Todos os dias, 07:00 — 22:00</span></div></footer>
+  </body>
+</html>
